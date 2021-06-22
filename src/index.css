@@ -1,0 +1,97 @@
+.header {
+    padding: 30px
+}
+
+.logo {
+    margin:0 14px;
+    position: relative;
+    bottom: -15px;
+    z-index: -2;
+    display: block;
+}
+.search-form {
+    position: relative;
+    bottom: 30px;
+    float: right;
+    /* overflow: hidden;
+    max-width: 460px;
+    display: flex; */
+}
+
+.search-input {
+    margin: 0 14px;
+    position: relative;
+    padding: 15px;
+    font-family: inter;
+}
+
+hr {
+    position: relative;
+    z-index: 3;
+    margin: 25px auto;
+    width: 95%;
+    border: 0;
+    border-top: 1px solid #c9c7c7;
+}
+
+.heading {
+padding-left: 5%;
+font-weight: bold;
+font-family: inter;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 95%;
+    /* padding-top: 15px; */
+    justify-content: space-around;
+}
+
+.card {
+    position: relative;
+    margin: .8%;
+    max-width: 21rem;
+    max-height: 40rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: -1px 1px 5px -1px gray;
+} 
+.card-image {
+    display: block;
+    position: relative;
+    top: -35px;
+    width: 100%;
+    max-width: max-content;
+    z-index: 1;
+}
+
+.title {
+    text-align: center;
+    position: relative;
+    top: -25px;
+    z-index: 2;
+    background-color: white;
+    font-family: inter;
+    font-weight:400;
+}
+
+.rating-bubble {
+  position: relative;
+  z-index: 4;
+  top: 50px;
+  left: 15px;
+  height: 30px;
+  width: 30px;
+  background-color: white;
+  border-radius: 50%;
+  border: 1.5px solid black;
+  display: inline-block;
+}
+
+.rating {
+    position:relative;
+    top: -10px;
+    text-align: center;
+}
