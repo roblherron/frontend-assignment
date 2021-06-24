@@ -6,7 +6,7 @@
     margin:0 14px;
     position: relative;
     bottom: -15px;
-    z-index: -2;
+    /* z-index: -2; */
     display: block;
 }
 .search-form {
@@ -80,7 +80,7 @@ font-family: inter;
 .rating-bubble {
   position: relative;
   z-index: 4;
-  top: 50px;
+  top: 25px;
   left: 15px;
   height: 30px;
   width: 30px;
@@ -94,4 +94,64 @@ font-family: inter;
     position:relative;
     top: -10px;
     text-align: center;
+    font-family: inter;
 }
+
+.modal {
+    position: fixed; 
+    z-index: 5;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-box {
+    padding: 3%;
+    background: #ffffff;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60em;
+    max-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    
+}
+.modal-left {
+    position: relative;
+    max-width: 35%;
+}
+.modal-right {
+    position: relative;
+    bottom: 500px;
+    left: 450px;
+    max-width: 25%;
+    font-family: inter;
+}
+
+.button {
+    position: fixed; 
+    z-index: 7;
+    left: 75%;
+    top: 10%;
+    width: 2%; 
+    height: 4%; 
+    overflow: auto; 
+}
+
+.modal-image {
+    display: block;
+    position: relative;
+    top: 500px;
+    width: 1%;
+    max-width: 1px;
+}
+/* .modal-overview {
+    position: relative;
+    bottom: 500px;
+    left: 50px;
+} */

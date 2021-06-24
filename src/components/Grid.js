@@ -1,6 +1,6 @@
 import React from "react";
 import Cards from './Cards';
-
+import Modal from './Modal'
 
 const Grid = (props) => {
 
@@ -12,7 +12,7 @@ return (
             ? <h2>Sorry, no results were found.</h2>
             : props.movies.map((card, i) => {
             return (
-                <Cards key={i} card={card}/>)
+                <Cards key={i} card={card} />)
         }
         )
         }

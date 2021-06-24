@@ -1,11 +1,16 @@
 import React from 'react';
 
-const Modal = () => {
-    const [show, setShow] = React.useState(false)
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-    
+const Modal = ({open, children, onClose}) => {
+    return(
+        <div>
+            {open === true
+                ?   <div> 
+                        <button onClick={onClose} className="button"> X </button> {children} 
+                    </div>
+                : null
+            }
+        </div>
+)
 }
 
 export default Modal;

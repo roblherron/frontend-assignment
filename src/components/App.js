@@ -1,74 +1,67 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import axios from 'axios';
 import logo from '../images/logo.svg';
 import Search from './Search';
 import Grid from './Grid'
+ 
+export default function App() {
 
-class App extends Component {
-	constructor() {
-		super();
-		this.state = {
-		  movies: [],
-		  searchQuery: '',
-		  heading: ''
-		};
-	  }
+     const [movies, setMovies] = React.useState([])
+     const [searchQuery, setSearchQuery] = React.useState('')
+     const [heading, setHeading] = React.useState('') 
+     
 
-	  // MOUNTING
-	  componentDidMount() {
-		axios
-		.get(
-		`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_MOVIE_DB_API_KEY}&language=en-US&page=1`
-			)
-			.then((response) => {
-			this.setState({movies: [...response.data.results],
-			heading: 'Most Recent Movies'})
-			console.log('init response', response.data.results)
-			})
-			.catch(error => {
-			console.log('error', error.response)
-		});
-	  }
+     
+    
+	React.useEffect(() => {
+     axios
+     .get(
+     `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_MOVIE_DB_API_KEY}&language=en-US&page=1`
+         )
+         .then((response) => {
+         setMovies( [...response.data.results])
+         setHeading('Most Recent Movies')
+         console.log('init response', response.data.results)
+         })
+         .catch(error => {
+         console.log('error', error.response)
+     });
+	}, [])
 
-	  // HANDLER FUNCTIONS
-
-	  handleSubmit = (e) => {
-		e.preventDefault();
-		axios
-		    .get(
-		    `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE_DB_API_KEY}&query=${this.state.searchQuery}`
-		        )
-				.then((response) => {
-					this.setState(
-						{movies: [...response.data.results],
-						heading: `Results for '${this.state.searchQuery}'`}
-						);
-						console.log('response', response.data.results)
-				})
-		        .catch(error => {
-		          console.log('error', error.response)
-		      });
-	  }
-
-	  handleChange = (e) => {
-		e.preventDefault();
-		this.setState(
-			{searchQuery: e.target.value}
-		)
-	  }
+//HANDLER FUNCTIONS
 
 
-	render() {
-		return (
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        axios
+            .get(
+            `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE_DB_API_KEY}&query=${searchQuery}`
+                )
+                .then((response) => {
+                    setMovies( [...response.data.results])
+                    setHeading(searchQuery)
+                        console.log('response', response.data.results)
+                } )
+            //     .catch((error) => {
+            //       console.log('error', error.response)
+            //   });
+      }
+ 
+      const handleChange = (e) => {
+        e.preventDefault();
+        setSearchQuery(e.target.value)
+      }
+ 
+ 
+        return (
 <div>
-	<div className="header">
-		<img src={logo} alt="Timescale" className='logo'/>
-		<Search handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
-	</div>
-	<hr/>
-	<h1 className="heading">{this.state.heading}</h1>
-	<Grid movies={this.state.movies}/>
-</div>)}
+    <div className="header">
+        <img src={logo} alt="Timescale" className='logo'/>
+        <Search handleSubmit={handleSubmit} handleChange={handleChange}/>
+    </div>
+    <hr/>
+    <h1 className="heading">{heading}</h1>
+    <Grid movies={movies}/>
+</div>)
 }
-
-export default App;
