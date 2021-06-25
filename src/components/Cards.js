@@ -5,10 +5,6 @@ import Modal from './Modal'
 
 
 
-//creating an event listener that listens for click on card
-//when event is triggered, card data in communicated to Modal component
-// Modal component takes data as props and renders them as Modal
-
 const Cards = (props) => {
     const [isOpen, setIsOpen] = React.useState(false)
     console.log(isOpen)
@@ -20,14 +16,13 @@ const Cards = (props) => {
             <div className="modal">
                 <div className="modal-box">
                 <div className='modal-left'>
-                    <h1>{`${props.card.original_title}`}</h1>  
-                    
+                    <h1 className='modal-title'>{`${props.card.original_title}`}</h1>  
                     <img className="modal-image" src={[`https://image.tmdb.org/t/p/w500/${props.card.poster_path}`]} alt='card' className="card-image"></img>
                 </div>
                 <div className='modal-right'>
-                    <h2>Release Date: {`${props.card.release_date}`}</h2>
+                    <h2 className='modal-release'>{<b>Release Date:</b>} {`${props.card.release_date}`}</h2>
                     <p className="modal-overview">{`${props.card.overview}`}</p>
-                    <p>{<b>{`${props.card.vote_average}`}</b>}{` / 10 (${props.card.vote_count} total votes)`}</p>
+                    <p className='modal-overview'>{<b>{`${props.card.vote_average}`}</b>}{` / 10 (${props.card.vote_count} total votes)`}</p>
                 </div>
                 </div>
             </div>
