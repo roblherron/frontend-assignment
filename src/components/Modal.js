@@ -4,8 +4,8 @@ const Modal = ({open, children, onClose}) => {
     return(
         <div>
             {open === true
-                ?   <div> 
-                        <button onClick={onClose} className="button"> X </button> {children} 
+                ?   <div className='modal-box'> 
+                        <button onClick={onClose} className="button"> ╳ </button> {children} 
                     </div>
                 : null
             }

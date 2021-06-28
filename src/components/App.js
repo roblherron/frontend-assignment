@@ -40,7 +40,7 @@ export default function App() {
                 )
                 .then((response) => {
                     setMovies( [...response.data.results])
-                    setHeading(searchQuery)
+                    setHeading(`Results for '${searchQuery}'`)
                         console.log('response', response.data.results)
                 } )
             //     .catch((error) => {

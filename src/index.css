@@ -35,8 +35,9 @@ hr {
 }
 
 .heading {
-padding-left: 5%;
+padding-left: 6%;
 font-weight: bold;
+font-size:xx-large;
 font-family: inter;
 }
 
@@ -44,33 +45,35 @@ font-family: inter;
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    width: 95%;
-    /* padding-top: 15px; */
+    width: 90%;
     justify-content: space-around;
 }
 
 .card {
     position: relative;
-    margin: .8%;
-    max-width: 21rem;
-    max-height: 40rem;
-    border-radius: 1rem;
+    margin: .7%;
+    max-width: 24rem;
+    max-height: 32rem;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: -1px 1px 5px -1px gray;
+    box-shadow: -1px 4px 10px 5px rgba(236, 233, 233, 0.993);
 } 
 .card-image {
     display: block;
     position: relative;
-    top: -35px;
-    width: 100%;
-    max-width: max-content;
+    object-fit: cover;
+    min-width: 100%;
+    height: 90%;
+    top: -50px;
     z-index: 1;
 }
 
 .title {
     text-align: center;
-    position: relative;
-    top: -25px;
+    position: absolute;
+    top: 85%;
+    line-height: 45px;
+    width: 100%;
     z-index: 2;
     background-color: white;
     font-family: inter;
@@ -82,114 +85,127 @@ font-family: inter;
   z-index: 4;
   top: 25px;
   left: 15px;
-  height: 30px;
-  width: 30px;
+  height: 40px;
+  width: 40px;
   background-color: white;
   border-radius: 50%;
-  border: 1.5px solid black;
+  border: 1.9px solid black;
   display: inline-block;
 }
 
 .rating {
     position:relative;
-    top: -10px;
+    top: -7px;
     text-align: center;
     font-family: inter;
+    font-weight: bolder;
 }
 
-.modal {
-    position: fixed; 
+.modal-backdrop {
+    position: fixed;
     z-index: 5;
     left: 0;
     top: 0;
     width: 100%; 
     height: 100%; 
     overflow: auto; 
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.7);
 }
 
-.modal-box {
-    padding: 1%;
-    background: #ffffff;
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 50em;
-    max-height: 60vh;
-    display: flex;
-    flex-direction: column;
-    
-}
-.modal-left {
-    position: relative;
-    max-width: 45%;
-    font-family: inter;
-    bottom: 50px;
-}
-.modal-right {
-    position: relative;
-    bottom: 500px;
-    left: 450px;
-    max-width: 40%;
-    font-family: inter;
+ .modal-box {
+    background-color: #FFF;
+    position: fixed;
+    z-index: 6;
+    min-width:35rem;
+    max-width: 40rem;
+    min-height: 25rem;
+    max-height: 25rem;
+    width: 40%; 
+    height: 60%; 
+    left: 25%;
+    top: 25%;
+    padding: 10px;
+    padding-bottom: 25px;
 
-}
+} 
 
 .button {
-    position: fixed; 
+    position: absolute; 
+    font-weight: bolder;
     z-index: 7;
-    left: 67%;
-    top: 20%;
-    width: 1.5%; 
-    height: 3%; 
+    left: 94%;
+    top: 1%;
     overflow: auto; 
     background-color: white;
 
 }
 
 .modal-title {
-    padding: 5px;
-    font-size: 25px;
+    position: absolute;
+margin-top: 3%;
+    font-size: 20px;
+    font-family: inter;
+}
+
+.image-container {
+    position: relative;
+    text-align: center; 
+    margin-left: auto;
+    margin-right: auto;
+    width: 33.33%;
+
 }
 
 .modal-image {
-    max-width: max-content;
-    position: relative;
+    position:relative;
     display: block;
-    margin-top: 350px;
-    margin-bottom: -25px;
+    width: 15rem;
+    height: 350px;
+    top: 55px;
+    left: -100%;
 }
-.modal-overview {
-    position: relative;
-}
+
 
 .modal-release {
-font-size: 15px;
-font-weight:400;
-}
-
-
-/* .modal-background {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.637);
-    z-index: 100;
-
-}
-
-.modal-child {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    border: 1px solid lightgray;
-    height: 480px;
-    width: 600px;
+    font-family: inter;
+    top:13%;
+    margin-left: 17.75em;
+    font-size: 14px;
+    font-weight:400;
+    max-height: 25%;
 
-    overflow: auto;
-} */
+} 
+
+.modal-overview {
+    position: absolute;
+    font-family: inter;
+    font-size: 12px;
+    font-weight: 450;
+    letter-spacing: .08em;
+    margin-top: -275px;
+    margin-left: 250px;
+    margin-right: 5px;
+    padding-top: 10px; 
+    padding-right: 25px;
+}
+
+
+@media only screen and (max-width:450px) {
+
+    .search-form {
+        position: relative;
+        margin: 25px;
+    }
+    .search-input {
+        position: relative;
+        top: 25px;
+        left: -3px;
+    }
+
+    .modal-box {
+        position: relative;
+
+    }
+
+}
